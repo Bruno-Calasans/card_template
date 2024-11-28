@@ -57,8 +57,9 @@ func start_drag(card: Card):
 	
 # stops the drag effect while the hovering stops
 func stop_drag():
-	dragged_card.scale = Vector2(1, 1)
-	dragged_card = null
+	if dragged_card:
+		dragged_card.scale = Vector2(1, 1)
+		dragged_card = null
 
 func connect_card_signals(card: Card):
 	if card:
