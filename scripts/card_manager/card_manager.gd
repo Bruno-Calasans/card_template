@@ -1,7 +1,9 @@
 extends Node2D
 class_name CardManager
 
+@export_category('Objects')
 @onready var screen_size: Vector2 = get_viewport_rect().size
+@onready var player_hand: PlayerHand = get_node("../PlayerHand")
 
 var hovering_card = false # can be one hover effect at once
 var dragged_card: Node2D = null
@@ -92,6 +94,10 @@ func stop_drag():
 			dragged_card.global_position = card_slot_area.global_position
 			card_slot_found.ocuppied = true
 			card_slot_found.occupied_card = dragged_card
+			player_hand.remove_card_from_hand(dragged_card)
+			
+		else:
+			player_hand.add_card_to_hand(dragged_card)
 			
 		dragged_card.scale = Vector2(1, 1)
 		dragged_card = null

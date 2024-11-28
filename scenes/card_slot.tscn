@@ -10,11 +10,11 @@ size = Vector2(171, 258)
 script = ExtResource("1_hk6d1")
 
 [node name="CardSlotImage" type="Sprite2D" parent="."]
-position = Vector2(372, 194.5)
+position = Vector2(105, 158.5)
 texture = ExtResource("1_dk3ln")
 
 [node name="CardSlotCollisionArea" type="Area2D" parent="."]
-position = Vector2(372, 194.5)
+position = Vector2(105, 158.5)
 collision_layer = 2
 
 [node name="CardSlotCollision" type="CollisionShape2D" parent="CardSlotCollisionArea"]

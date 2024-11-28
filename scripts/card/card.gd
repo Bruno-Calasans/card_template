@@ -4,6 +4,8 @@ class_name Card
 signal hovered_on
 signal hovered_off
 
+var start_hand_position: Vector2
+
 func _ready() -> void:
 	var parent = get_parent()
 	if parent is CardManager:
