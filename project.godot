@@ -26,6 +26,11 @@ drag={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="card"
+2d_physics/layer_2="card_slot"
+
 [rendering]
 
 renderer/rendering_method="mobile"
