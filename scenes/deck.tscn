@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl16bwv8y040l"]
+
+[ext_resource type="Script" path="res://scripts/deck/deck.gd" id="1_owrdo"]
+[ext_resource type="Texture2D" uid="uid://20crvr53a4qd" path="res://assets/images/Deck.png" id="1_xhd7v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvxv7"]
+size = Vector2(181, 265)
+
+[node name="Deck" type="Node2D"]
+script = ExtResource("1_owrdo")
+
+[node name="DeckTexture" type="Sprite2D" parent="."]
+texture = ExtResource("1_xhd7v")
+
+[node name="DeckArea" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="DeckCollision" type="CollisionShape2D" parent="DeckArea"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_mvxv7")
+
+[node name="CardCounter" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -23.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

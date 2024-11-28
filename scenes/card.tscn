@@ -8,6 +8,7 @@
 size = Vector2(169, 257)
 
 [node name="Card" type="Node2D"]
+position = Vector2(120, 900)
 script = ExtResource("1_nhuvm")
 
 [node name="CardTexture" type="Sprite2D" parent="."]
