@@ -1,26 +1,269 @@
-[gd_scene load_steps=5 format=3 uid="uid://v2lounkwfoqf"]
+[gd_scene load_steps=10 format=3 uid="uid://v2lounkwfoqf"]
 
 [ext_resource type="Script" path="res://scripts/card/card.gd" id="1_nhuvm"]
-[ext_resource type="Texture2D" uid="uid://dji3nh3h6ktfh" path="res://assets/images/card1.jpeg" id="2_bln63"]
 [ext_resource type="Script" path="res://scripts/card/card_area.gd" id="2_lllnv"]
+[ext_resource type="Texture2D" uid="uid://cxe0bu15cgup5" path="res://assets/images/card_template.png" id="2_x82y1"]
+[ext_resource type="Texture2D" uid="uid://dvh6x65gbayye" path="res://assets/images/card2.jpg" id="3_fw1t6"]
+[ext_resource type="Texture2D" uid="uid://b1sgui1kcqsb5" path="res://assets/images/card_back.png" id="5_dr41p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2js0"]
-size = Vector2(169, 257)
+size = Vector2(170, 258)
+
+[sub_resource type="Animation" id="Animation_vaxcm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardArea:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_20aea"]
+resource_name = "flip"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front/CardTemplate:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Front/FrontTexture:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Front/Labels:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardArea:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Back/BackTexture:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.354, 1.433), Vector2(1, 1.433), Vector2(0.3, 1.433), Vector2(1, 1.433), Vector2(1.354, 1.46667)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Front/CardTemplate:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Front/FrontTexture:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Front/FrontTexture:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.0664063, 0.110164), Vector2(0.100586, 0.110164), Vector2(0.134766, 0.110164)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Front/CardTemplate:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.461), Vector2(0.315, 0.461), Vector2(0.425, 0.467857)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Front/Labels:z_index")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CardArea:z_index")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r7gf4"]
+_data = {
+"RESET": SubResource("Animation_vaxcm"),
+"flip": SubResource("Animation_20aea")
+}
 
 [node name="Card" type="Node2D"]
-position = Vector2(120, 900)
+position = Vector2(120, 890)
 script = ExtResource("1_nhuvm")
 
-[node name="CardTexture" type="Sprite2D" parent="."]
-scale = Vector2(0.166992, 0.250977)
-texture = ExtResource("2_bln63")
+[node name="Front" type="Node2D" parent="."]
+
+[node name="CardTemplate" type="Sprite2D" parent="Front"]
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+position = Vector2(1.43051e-05, 3.33786e-06)
+scale = Vector2(0.2, 0.461)
+texture = ExtResource("2_x82y1")
+
+[node name="FrontTexture" type="Sprite2D" parent="Front"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(3.8147e-06, -42.404)
+scale = Vector2(0.0664063, 0.110164)
+texture = ExtResource("3_fw1t6")
+
+[node name="Labels" type="Node2D" parent="Front"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+
+[node name="CardName" type="Label" parent="Front/Labels"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -68.0
+offset_top = -114.0
+offset_right = 212.0
+offset_bottom = -91.0
+scale = Vector2(0.5, 0.5)
+text = "Elder Lich Mkil"
+clip_text = true
+
+[node name="CardType" type="Label" parent="Front/Labels"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -68.0
+offset_top = 17.0
+offset_right = 210.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+text = "criatura • divina"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="CardDesc" type="Label" parent="Front/Labels"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -69.0
+offset_top = 33.0
+offset_right = 205.0
+offset_bottom = 57.0
+scale = Vector2(0.5, 0.5)
+text = "Descrição do card"
+clip_text = true
+
+[node name="BasicAtk" type="Label" parent="Front/Labels"]
+modulate = Color(0, 0, 1, 1)
+offset_left = -69.0
+offset_top = 107.0
+offset_right = -45.0
+offset_bottom = 130.0
+scale = Vector2(0.5, 0.5)
+text = "10"
+
+[node name="Health" type="Label" parent="Front/Labels"]
+modulate = Color(1, 0, 0, 1)
+offset_left = 58.0
+offset_top = 108.0
+offset_right = 82.0
+offset_bottom = 131.0
+scale = Vector2(0.5, 0.5)
+text = "10"
+
+[node name="Back" type="Node2D" parent="."]
+
+[node name="BackTexture" type="Sprite2D" parent="Back"]
+position = Vector2(0, 1.00005)
+scale = Vector2(1.354, 1.433)
+texture = ExtResource("5_dr41p")
 
 [node name="CardArea" type="Area2D" parent="."]
+z_index = 1
 collision_mask = 2
+monitorable = false
 script = ExtResource("2_lllnv")
 
 [node name="CardCollision" type="CollisionShape2D" parent="CardArea"]
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_l2js0")
+
+[node name="CardAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r7gf4")
+}
+autoplay = "flip"
+speed_scale = 0.8
 
 [connection signal="mouse_entered" from="CardArea" to="." method="on_card_area_mouse_entered"]
 [connection signal="mouse_exited" from="CardArea" to="." method="on_card_area_mouse_exited"]

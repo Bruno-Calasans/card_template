@@ -1,6 +1,7 @@
 extends Node2D
 class_name Deck
 
+
 @onready var player_hand: PlayerHand = get_node("../PlayerHand")
 @onready var card_manager: CardManager = get_node("../CardManager")
 @onready var card_counter: Label = get_node('CardCounter')
@@ -18,8 +19,17 @@ func _ready() -> void:
 
 func create_deck(quant: int):
 	var card_scene: PackedScene = preload("res://scenes/card.tscn")
+	var card_database = preload("res://scripts/card_database.gd")
+
 	for i in range(0, quant):
+		var card_info = card_database.CARDS[randi_range(0, card_database.CARDS.size() - 1)]
 		var card = card_scene.instantiate()
+		card.update_name(card_info.name)
+		card.update_basic_atk(card_info.basic_atk)
+		card.update_desc(card_info.desc)
+		card.update_health(card_info.health)
+		card.update_type(card_info.type)
+		card.update_card_image(card_info.path)
 		player_deck.append(card)
 
 func update_card_counter(value: int):
@@ -43,7 +53,7 @@ func draw_card(quant: int = 1, exact = false):
 			var card = player_deck[i]
 			card_manager.add_child(card)
 			player_hand.add_card_to_hand(card, DEFAULT_DRAW_CARD_SPEED)
-			
+			card.card_animation.play('flip')
 		player_deck = player_deck.slice(quant)
 		update_card_counter(player_deck.size())
 	

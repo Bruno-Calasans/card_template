@@ -32,7 +32,6 @@ func raycast_at_cursor():
 	if results.size() == 0: return null
 
 	var first_item = results[0].collider as Area2D
-
 	# clicks on a card
 	if first_item.collision_layer == COLLISION_LAYER_CARD:
 		var cards: Array[Card] = []
@@ -40,6 +39,8 @@ func raycast_at_cursor():
 			var card = first_item.get_parent()
 			if  card is Card: 
 				cards.append(card)
+				
+		print(cards)
 		# drag card on the top
 		var card_on_top = get_card_on_top(cards)
 		return card_on_top
